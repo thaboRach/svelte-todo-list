@@ -3,6 +3,7 @@
   import Button from './components/Button.svelte';
   import Header from './components/Header.svelte';
   import List from './components/List.svelte';
+  import Icon from './components/Icon.svelte';
 
   let newTodo;
   let showInput = false;
@@ -36,19 +37,11 @@
   <div class:showInput>
     <section>
       <input bind:value={newTodo} type="text" bind:this={inputRef} maxlength="10" />
-      <button on:click={addNewTodo}>
-        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-          ><path d="M1 7l4.5 4.5L14 3" stroke="currentColor" stroke-linecap="square" /></svg
-        >
-      </button>
-      <button on:click={hideNewTodo}>
-        <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="17" height="17"
-          ><path d="M4.5 4.5l6 6m-6 0l6-6" stroke="currentColor" /></svg
-        >
-      </button>
+      <Button onClick={addNewTodo}><Icon slot="content" name="tick" /></Button>
+      <Button onClick={hideNewTodo}><Icon slot="content" name="cross" /></Button>
     </section>
   </div>
-  <Button on:addTodo={showNewTodo} />
+  <Button onClick={showNewTodo} round><Icon slot="content" name="plus" /></Button>
 </main>
 
 <style lang="scss">
@@ -85,24 +78,7 @@
           color: $secondary-color;
           border: none;
           outline: none;
-
           width: 8rem;
-        }
-
-        button {
-          background-color: $white;
-          border: none;
-          text-align: center;
-          height: 2.5rem;
-          width: 2.5rem;
-          cursor: pointer;
-          &:hover {
-            background-color: $secondary-color;
-            transition: 0.7s;
-          }
-          &:active {
-            background-color: $primary-color;
-          }
         }
       }
     }
