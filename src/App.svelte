@@ -3,7 +3,10 @@
   import Button from './components/Button.svelte';
   import Header from './components/Header.svelte';
   import List from './components/List.svelte';
-  import Icon from './components/Icon.svelte';
+
+  import plusIcon from './assets/plus.svg';
+  import crossIcon from './assets/cross.svg';
+  import tickIcon from './assets/tick.svg';
 
   let newTodo;
   let showInput = false;
@@ -37,11 +40,17 @@
   <div class:showInput>
     <section>
       <input bind:value={newTodo} type="text" bind:this={inputRef} maxlength="10" />
-      <Button onClick={addNewTodo}><Icon slot="content" name="tick" /></Button>
-      <Button onClick={hideNewTodo}><Icon slot="content" name="cross" /></Button>
+      <Button onClick={addNewTodo}>
+        <img slot="content" src={tickIcon} alt="Confirm" />
+      </Button>
+      <Button onClick={hideNewTodo}>
+        <img slot="content" src={crossIcon} alt="Reject" />
+      </Button>
     </section>
   </div>
-  <Button onClick={showNewTodo} round><Icon slot="content" name="plus" /></Button>
+  <Button onClick={showNewTodo} round>
+    <img slot="content" src={plusIcon} alt="Add" />
+  </Button>
 </main>
 
 <style lang="scss">
