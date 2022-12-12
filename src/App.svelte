@@ -41,15 +41,15 @@
     <section>
       <input bind:value={newTodo} type="text" bind:this={inputRef} maxlength="10" />
       <Button onClick={addNewTodo}>
-        <img slot="content" src={tickIcon} alt="Confirm" />
+        <img slot="content" class="logo" src={tickIcon} alt="Confirm" />
       </Button>
       <Button onClick={hideNewTodo}>
-        <img slot="content" src={crossIcon} alt="Reject" />
+        <img slot="content" class="logo" src={crossIcon} alt="Reject" />
       </Button>
     </section>
   </div>
   <Button onClick={showNewTodo} round>
-    <img slot="content" src={plusIcon} alt="Add" />
+    <img slot="content" class="logo" src={plusIcon} alt="Add" />
   </Button>
 </main>
 
@@ -90,6 +90,11 @@
           width: 8rem;
         }
       }
+    }
+
+    .logo {
+      height: 1.5rem;
+      width: 1.5rem;
     }
   }
 </style>
